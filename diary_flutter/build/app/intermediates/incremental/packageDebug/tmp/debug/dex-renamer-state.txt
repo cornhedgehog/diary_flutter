@@ -1,0 +1,4 @@
+#Sun Dec 30 23:46:50 EET 2018
+base.0=D\:\\_repos\\diary_flutter\\diary_flutter\\build\\app\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex
