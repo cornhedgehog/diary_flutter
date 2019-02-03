@@ -1,17 +1,21 @@
+import 'package:diary_flutter/services/authentication.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class QuestionPage extends StatefulWidget {
-  QuestionPage({Key key, this.title}) : super(key: key);
+  QuestionPage({Key key, this.userId, this.auth, this.onSignedOut})
+      : super(key: key);
 
-  final String title;
+  final BaseAuth auth;
+  final VoidCallback onSignedOut;
+  final String userId;
+  final String title = "First Question";
 
   @override
   _QuestionPageState createState() => _QuestionPageState();
 }
 
 class _QuestionPageState extends State<QuestionPage> {
-
   final answerController = TextEditingController();
 
   @override
@@ -26,6 +30,15 @@ class _QuestionPageState extends State<QuestionPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: <Widget>[
+          // action button
+          IconButton(
+            icon: Icon(Icons.exit_to_app),
+            onPressed: () {
+              widget.onSignedOut();
+            },
+          ),
+        ],
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
